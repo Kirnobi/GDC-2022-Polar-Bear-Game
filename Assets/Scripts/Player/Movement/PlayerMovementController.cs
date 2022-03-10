@@ -6,15 +6,15 @@ public class PlayerMovementController : MonoBehaviour
 {
     // The amount it will move every second
     [SerializeField]
-    private float horizontalSpeedForce = 2f;
+    private float horizontalSpeedForce = 8f;
     [SerializeField]
-    private float maxHorizontalSpeed = 10f;
+    private float maxHorizontalSpeed = 30f;
     [SerializeField]
     private float maxVerticalSpeed = 20f;
     [SerializeField]
     private float horizontalForceDegredation = 0.90f;
     [SerializeField]
-    private float jumpForce = 10f;
+    private float jumpForce = 400f;
     [SerializeField]
     private int maxJumps = 2;
 
@@ -34,8 +34,13 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         // Moving forces
-        Vector3 forceToAdd = Vector3.right * horizontalSpeedForce * Input.GetAxis("Horizontal");
-        rb.AddForce(forceToAdd, ForceMode2D.Force);
+        //Vector3 forceToAdd = Vector3.right * horizontalSpeedForce * Input.GetAxis("Horizontal");
+        //rb.AddForce(forceToAdd, ForceMode2D.Force);
+
+        // Using tranform.Translate because that is known to work
+        // 
+        // Note: This will cause weird issues with the camera so it is important that we account for this and maybe make this smarter
+        transform.Translate(Vector3.right * horizontalSpeedForce * Input.GetAxis("Horizontal") * Time.deltaTime);
 
         // Jumping
         if (Input.GetKeyDown(KeyCode.W) && jumps != 0)
