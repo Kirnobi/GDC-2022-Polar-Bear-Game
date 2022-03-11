@@ -6,9 +6,14 @@ public class Holder : MonoBehaviour
 {
     [SerializeField]
     private LineRenderer lineRenderer;
+    [SerializeField]
+    private float throwScale = 200f;
+    [SerializeField]
+    private float throwDelay = .25f;
 
     private bool holding = false;
     private Holdable heldObject;
+    private float throwTimer = 0f;
 
     public bool isHolding() { return holding; }
 
@@ -21,10 +26,11 @@ public class Holder : MonoBehaviour
         holding = true;
         heldObject = toHold;
         lineRenderer.enabled = true;
+        throwTimer = throwDelay;
         return true;
     }
 
-    public bool removeHolding()
+    public bool removeHolding(Vector3 force)
     {
         if (!holding)
         {
@@ -32,7 +38,7 @@ public class Holder : MonoBehaviour
         }
         if (heldObject.removeHeld())
         {
-            // apply force to the object
+            heldObject.GetComponent<Rigidbody2D>().AddForce(force);
         }
         holding = false;
         heldObject = null;
@@ -49,10 +55,20 @@ public class Holder : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0) && holding && throwTimer <= 0)
+            removeHolding((Camera.main.ScreenToWorldPoint(Input.mousePosition) - heldObject.transform.position) * throwScale);
         if (holding)
         {
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, heldObject.gameObject.transform.position);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (throwTimer > 0)
+        {
+            throwTimer -= Time.deltaTime;
         }
     }
 }

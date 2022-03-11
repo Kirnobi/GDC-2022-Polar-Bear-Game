@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 259506406}
+  throwScale: 50
+  throwDelay: 0.25
 --- !u!120 &259506406
 LineRenderer:
   m_ObjectHideFlags: 0
