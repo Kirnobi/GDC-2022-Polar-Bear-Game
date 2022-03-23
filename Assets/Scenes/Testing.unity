@@ -364,9 +364,10 @@ GameObject:
   - component: {fileID: 453090390}
   - component: {fileID: 453090388}
   - component: {fileID: 453090391}
+  - component: {fileID: 453090389}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: DisplayMe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,6 +458,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &453090389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453090385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: befadbf2ff8346a4092dd262081a7a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionText: Hi, you just collided with a box
 --- !u!61 &453090390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -510,6 +524,7 @@ GameObject:
   - component: {fileID: 480251330}
   - component: {fileID: 480251329}
   - component: {fileID: 480251328}
+  - component: {fileID: 480251333}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -649,6 +664,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480251333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480251327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90666cd59f05034d99226ad7cc3f2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1342957127}
+        m_TargetAssemblyTypeName: SampleCollisionHandler, Assembly-CSharp
+        m_MethodName: HandleCollision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  collidableDisplayTag: DisplayMe
 --- !u!1 &675240961
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,3 +873,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 480251330}
   matchTag: Jumpable
+--- !u!1 &1342957126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342957128}
+  - component: {fileID: 1342957127}
+  m_Layer: 0
+  m_Name: SampleCollisionHandler
+  m_TagString: DisplayMe
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342957127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342957126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589c5ef443c232c4bad595730a3d487a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1342957128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342957126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5003257, y: -58.47629, z: -111.17514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
