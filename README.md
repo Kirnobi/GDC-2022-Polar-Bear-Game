@@ -15,4 +15,5 @@ Game Design Club's Polar Bear Game
     -   [ ] Parallax scrolling
     -   [ ] Spawning Obstacles
 -   [ ] UI Mechanics
-    -   [ ] Pop up for collisions
+    -   [x] Pop up for collisions
+    -   To be continued...
