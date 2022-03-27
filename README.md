@@ -5,6 +5,7 @@ Game Design Club's Polar Bear Game
 # Notes
 
 -   [ ] Enemies
+    -   [x] Tracking/Following the Player
     -   [ ] Eliminating
     -   [ ] Attacking the Player
 -   [ ] Movement Mechanics
