@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerMovementController : MonoBehaviour
 {
     // The amount it will move every second
@@ -21,10 +20,16 @@ public class PlayerMovementController : MonoBehaviour
     private int jumps = 0;
 
     private Rigidbody2D rb;
+    private Animator _animator;
 
     public int getMaxJumps() { return maxJumps; }
     public void setJumps(int j) { jumps = j; }
-    
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     private void Start()
     {
         // Get the RigidBody attached to the component
@@ -49,6 +54,7 @@ public class PlayerMovementController : MonoBehaviour
             rb.velocity = rb.velocity.x * Vector3.right;
             rb.AddForce(jumpForce * Vector3.up);
             jumps--;
+            _animator.SetBool("IsJumping", true);
         }
     }
 

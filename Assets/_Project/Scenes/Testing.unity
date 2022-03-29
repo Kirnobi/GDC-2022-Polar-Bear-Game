@@ -410,8 +410,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e28c5a72ab2f86419aabf574edfc0e7, type: 2}
-  m_sharedMaterial: {fileID: -1955388751802988472, guid: 3e28c5a72ab2f86419aabf574edfc0e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -498,7 +498,6 @@ GameObject:
   - component: {fileID: 453090390}
   - component: {fileID: 453090388}
   - component: {fileID: 453090391}
-  - component: {fileID: 453090389}
   m_Layer: 0
   m_Name: Box
   m_TagString: DisplayMe
@@ -592,19 +591,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &453090389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453090385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befadbf2ff8346a4092dd262081a7a70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionText: Hi, you just collided with a box
 --- !u!61 &453090390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -659,6 +645,7 @@ GameObject:
   - component: {fileID: 480251329}
   - component: {fileID: 480251328}
   - component: {fileID: 480251333}
+  - component: {fileID: 480251334}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -700,18 +687,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0040536225, y: 0.0020268112}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1275, y: 1.5825}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.68646675, y: 0.5040536}
   m_EdgeRadius: 0
 --- !u!114 &480251330
 MonoBehaviour:
@@ -771,7 +758,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ea42d2642d15304eaa45946083ecaa8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4e1e9d3bc6494e4693a7aff4a0c160c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -838,6 +825,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   collidableDisplayTag: DisplayMe
+--- !u!95 &480251334
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480251327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8859d559b65fec44e8c9e5715e8d3097, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &675240961
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +998,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: -0.24305916}
+  m_Offset: {x: -0.006080404, y: -0.24305916}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1003,7 +1009,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.488824, y: 0.072867036}
+  m_Size: {x: 0.6793444, y: 0.072867036}
   m_EdgeRadius: 0
 --- !u!114 &937161883
 MonoBehaviour:
