@@ -45,7 +45,10 @@ public class PlayerMovementController : MonoBehaviour
         // Using tranform.Translate because that is known to work
         // 
         // Note: This will cause weird issues with the camera so it is important that we account for this and maybe make this smarter
-        transform.Translate(Vector3.right * horizontalSpeedForce * Input.GetAxis("Horizontal") * Time.deltaTime);
+        var currentSpeed = horizontalSpeedForce * Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * currentSpeed * Time.deltaTime);
+        _animator.SetFloat("Speed", currentSpeed);
+
 
         // Jumping
         if (Input.GetKeyDown(KeyCode.W) && jumps != 0)
